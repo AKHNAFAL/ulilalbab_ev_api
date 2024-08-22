@@ -13,10 +13,12 @@ return new class extends Migration
     {
         Schema::create('meetings', function (Blueprint $table) {
             $table->id();
-            $table->string('title', 255)->nullable();
-            $table->timestamp('start_time')->nullable();
-            $table->timestamp('end_time')->nullable();
-            $table->foreignId('location_id')->nullable()->constrained('locations');
+            $table->string('title', 255);
+            $table->enum('type', ['online', 'offline', 'hybrid']);
+            $table->timestamp('start_time');
+            $table->timestamp('end_time');
+            $table->foreignId('location_id')->constrained('locations');
+            $table->timestamps();
         });
     }
 

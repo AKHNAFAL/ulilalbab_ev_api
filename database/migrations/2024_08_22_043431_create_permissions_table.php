@@ -13,14 +13,15 @@ return new class extends Migration
     {
         Schema::create('permissions', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('user_id')->nullable();
-            $table->enum('type', ['sick', 'personal', 'vacation', 'other'])->nullable();
-            $table->date('start_date')->nullable();
-            $table->date('end_date')->nullable();
+            $table->foreignId('user_id')->constrained('users');
+            $table->foreignId('meeting_id')->nullable()->constrained('meetings');
+            $table->enum('type', ['sick', 'college_affairs', 'vacation', 'other']);
+            $table->date('start_date');
+            $table->date('end_date');
             $table->text('reason')->nullable();
-            $table->enum('status', ['pending', 'approved', 'rejected'])->nullable();
-            $table->timestamp('created_at')->nullable();
-            $table->foreignId('approved_by')->nullable();
+            $table->enum('status', ['pending', 'approved', 'rejected']);
+            $table->foreignId('approved_by')->nullable()->constrained('users');
+            $table->timestamps();
         });
     }
 

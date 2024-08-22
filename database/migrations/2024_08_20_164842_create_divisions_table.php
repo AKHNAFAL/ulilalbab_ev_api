@@ -13,9 +13,9 @@ return new class extends Migration
     {
         Schema::create('division', function (Blueprint $table) {
             $table->id();
-            $table->string('name_division', 255)->nullable();
-            $table->foreignId('departement_id')->nullable()->constrained('departement');
-            $table->foreignId('user_id')->nullable();
+            $table->string('name', 100);
+            $table->foreignId('department_id')->constrained('departments');
+            $table->timestamps();
         });
     }
 
