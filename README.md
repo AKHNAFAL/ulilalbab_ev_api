@@ -50,8 +50,8 @@ php artisan serve
 <!-- -   Run Queue
 
 ```bash
-php artisan queue:work -->
-```
+php artisan queue:work
+``` -->
 
 Visit Localhost (http://localhost:8000/) api
 Visit Localhost (http://localhost:3000) client
