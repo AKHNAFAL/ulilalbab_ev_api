@@ -35,16 +35,10 @@ php artisan key:generate
 php artisan migrate
 ```
 
--   Add Dummy Data of user
+-   Add Data Roles, Departments and Divisions
 
 ```bash
 php artisan db:seed
-```
-
--   Storage Link
-
-```bash
-php artisan storage:link
 ```
 
 -   Run localhost
@@ -53,10 +47,10 @@ php artisan storage:link
 php artisan serve
 ```
 
--   Run Queue
+<!-- -   Run Queue
 
 ```bash
-php artisan queue:work
+php artisan queue:work -->
 ```
 
 Visit Localhost (http://localhost:8000/) api
@@ -64,13 +58,9 @@ Visit Localhost (http://localhost:3000) client
 
 ### API Documentation
 
-Visit Postman Docs ...
+Visit Postman Docs ... belum
 
 ### Licensing
 
 -   Copyright 2023 [Raincode.My.Id](https://raincode.my.id)
 -   Licensed under **MIT**
-
-### Donation
-
-Buy Me some Cofee and Snack with Donate me at [Saweria](https://saweria.co/raincodemyid)
