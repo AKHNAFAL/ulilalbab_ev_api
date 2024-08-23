@@ -59,11 +59,12 @@ php artisan serve
 php artisan queue:work
 ```
 
-Visit Localhost (http://localhost:8000/)
+Visit Localhost (http://localhost:8000/) api
+Visit Localhost (http://localhost:3000) client
 
 ### API Documentation
 
-Visit Postman Docs (https://documenter.getpostman.com/view/1487227/2sA3JKchQc)
+Visit Postman Docs ...
 
 ### Licensing
 
