@@ -56,6 +56,10 @@ php artisan queue:work
 Visit Localhost (http://localhost:8000/) api
 Visit Localhost (http://localhost:3000) client
 
+### Client Clone
+
+https://github.com/laravel/breeze-next
+
 ### API Documentation
 
 Visit Postman Docs ... belum
