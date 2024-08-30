@@ -1,15 +1,4 @@
-# Laravel 11 API with Breeze and Sanctum
-
-Starterpack for make application based on Laravel 11 and API Breeze Package
-
-### Stack & Package
-
--   Laravel 11.7.0
--   Laravel Breeze (API)
--   [Laravel Permission v6.x](https://spatie.be/docs/laravel-permission/v6/introduction)
--   [Laravel Backup v8.x](https://spatie.be/docs/laravel-backup/v8/introduction)
--   [Laravel Setting](https://github.com/spatie/laravel-settings)
--   [Laravel Log Activity v4.x](https://spatie.be/docs/laravel-activitylog/v4/introduction)
+# BACA PANDUAN BERIKUT UNTUK MENGGUNAKAN REPOSITORY INI
 
 ### Usage
 
@@ -48,23 +37,18 @@ php artisan serve
 ```
 
 <!-- -   Run Queue
-
 ```bash
 php artisan queue:work
 ``` -->
 
-Visit Localhost (http://localhost:8000/) api
-Visit Localhost (http://localhost:3000) client
+### Visit Localhost (http://localhost:8000/) api
 
-### Client Clone
+### Visit Localhost (http://localhost:3000) client
+
+### NextJS Clone (Auto Synch)
 
 https://github.com/laravel/breeze-next
 
 ### API Documentation
 
 Visit Postman Docs ... belum
-
-### Licensing
-
--   Copyright 2023 [Raincode.My.Id](https://raincode.my.id)
--   Licensed under **MIT**
