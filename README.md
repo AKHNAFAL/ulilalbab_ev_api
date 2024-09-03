@@ -38,14 +38,16 @@ php artisan serve
 
 ### Akun
 
+Berikut adalah akun yang sudah didaftarkan secara default melalui db:seed. Tujuannya adalah untuk melakukan pengujian fitur user dan admin.
+
 #### User
-Name: test
-Email: test@test
+Name: test<br>
+Email: test@test<br>
 Password: 123123123
 
 #### Admin
-Name: admin
-Email: admin@test
+Name: admin<br>
+Email: admin@test<br>
 Password: 123123123
 
 <!-- -   Run Queue
@@ -55,7 +57,7 @@ php artisan queue:work
 
 ### Localhost
 
-(http://localhost:8000/) for BACKEND and (http://localhost:3000) for FRONTEND
+(http://localhost:8000/) for BACKEND<br>(http://localhost:3000) for FRONTEND
 
 ### NextJS Clone (Already Connected to API http://localhost:8000/)
 
