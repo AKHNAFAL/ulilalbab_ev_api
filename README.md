@@ -24,7 +24,7 @@ php artisan key:generate
 php artisan migrate
 ```
 
--   Add Data Roles, Departments and Divisions
+-   Add Static Data
 
 ```bash
 php artisan db:seed
@@ -36,19 +36,31 @@ php artisan db:seed
 php artisan serve
 ```
 
+### Akun
+
+#### User
+Name: test
+Email: test@test
+Password: 123123123
+
+#### Admin
+Name: admin
+Email: admin@test
+Password: 123123123
+
 <!-- -   Run Queue
 ```bash
 php artisan queue:work
 ``` -->
 
-### Visit Localhost (http://localhost:8000/) api
+### Localhost
 
-### Visit Localhost (http://localhost:3000) client
+(http://localhost:8000/) for BACKEND and (http://localhost:3000) for FRONTEND
 
-### NextJS Clone (Auto Synch)
+### NextJS Clone (Already Connected to API http://localhost:8000/)
 
 https://github.com/laravel/breeze-next
 
 ### API Documentation
 
-Visit Postman Docs ... belum
+[Visit Postman Docs (Not Final)](https://documenter.getpostman.com/view/31499252/2sAXjM3BXm)
