@@ -2,8 +2,9 @@
 
 namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class Meeting extends Model
 {
@@ -40,5 +41,10 @@ class Meeting extends Model
     public function permissions()
     {
         return $this->hasMany(Permission::class);
+    }
+
+    public function users(): BelongsToMany
+    {
+        return $this->belongsToMany(User::class, 'meeting_user', 'meeting_id', 'user_id');
     }
 }

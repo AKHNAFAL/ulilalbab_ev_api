@@ -15,9 +15,27 @@ class DatabaseSeeder extends Seeder
     {
         // User::factory(10)->create();
 
+        // php artisan db:seed --class=RolesTableSeeder
+        $this->call(RolesTableSeeder::class);
+
+        // php artisan db:seed --class=DepartmentsTableSeeder
+        $this->call(DepartmentsTableSeeder::class);
+
+        // php artisan db:seed --class=DivisionsTableSeeder
+        $this->call(DivisionsTableSeeder::class);
+
         User::factory()->create([
-            'name' => 'Test User',
-            'email' => 'test@example.com',
+            'name' => 'test',
+            'email' => 'test@test',
+            'role_id' => '17',
+            'division_id' => '6',
+        ]);
+        
+        User::factory()->create([
+            'name' => 'admin',
+            'email' => 'admin@admin',
+            'role_id' => '3',
+            'division_id' => null,
         ]);
     }
 }

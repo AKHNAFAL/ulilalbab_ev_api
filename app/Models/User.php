@@ -3,9 +3,10 @@
 namespace App\Models;
 
 // use Illuminate\Contracts\Auth\MustVerifyEmail;
+use Illuminate\Notifications\Notifiable;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
-use Illuminate\Notifications\Notifiable;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 
 class User extends Authenticatable
 {
@@ -22,6 +23,7 @@ class User extends Authenticatable
         'password',
         'role_id',
         'status',
+        'division_id'
     ];
 
     /**
@@ -67,5 +69,10 @@ class User extends Authenticatable
     public function permissions()
     {
         return $this->hasMany(Permission::class);
+    }
+
+    public function meetings(): BelongsToMany
+    {
+        return $this->belongsToMany(Meeting::class, 'meeting_user', 'user_id', 'meeting_id');
     }
 }
