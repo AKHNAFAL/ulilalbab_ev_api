@@ -13,6 +13,7 @@ class Location extends Model
         'name',
         'latitude',
         'longitude',
+        'description_address',
     ];
 
     protected function casts(): array

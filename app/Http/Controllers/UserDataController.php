@@ -18,11 +18,11 @@ class UserDataController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created resource in storage. DONE IN AUTH
      */
     public function store(Request $request)
     {
-
+        //
     }
 
     /**
@@ -30,11 +30,11 @@ class UserDataController extends Controller
      */
     public function show(User $user)
     {
-        
+        return new UserResource($user);
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified resource in storage. DONE IN AUTH
      */
     public function update(Request $request, User $user)
     {
@@ -46,28 +46,7 @@ class UserDataController extends Controller
      */
     public function destroy(User $user)
     {
-        //
+        $user->delete(); // Menghapus pengguna dari database
+        return response()->json(['message' => 'User deleted successfully'], 200);
     }
 }
-
-// <?php
-
-// use App\Models\Post;
-// use Illuminate\Http\Request;
-// use App\Http\Resources\PostResource;
-// use App\Http\Resources\PostDetailResource;
-
-// class PostController extends Controller
-// {
-//     public function index()
-//     {
-//         $posts = Post::all();
-//         return PostResource::collection($posts);
-//     }
-
-//     public function show($id)
-//     {
-//         $post = Post::findOrFail($id);
-//         return new PostDetailResource($post);
-//     }
-// }

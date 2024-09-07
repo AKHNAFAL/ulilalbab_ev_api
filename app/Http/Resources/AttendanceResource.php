@@ -16,7 +16,12 @@ class AttendanceResource extends JsonResource
     {
         // return parent::toArray($request);
         return [
-            
+            'user_id' => $this->user_id,
+            'check_in' => $this->check_in,
+            'check_out' => $this->check_out,
+            'location_id' => $this->location_id,
+            'attachment_id' => $this->attachment_id,
+            'meeting_id' => $this->meeting_id,
         ];
     }
 }
