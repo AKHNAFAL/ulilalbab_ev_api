@@ -22,6 +22,7 @@ return new class extends Migration
             $table->foreignId('role_id')->nullable()->default(17)->constrained('roles');
             $table->foreignId('division_id')->nullable()->default(null)->constrained('division');
             $table->enum('status', ['active', 'inactive'])->default('active');
+            $table->string('member_id', 10)->unique()->nullable();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'))->useCurrentOnUpdate();
         });

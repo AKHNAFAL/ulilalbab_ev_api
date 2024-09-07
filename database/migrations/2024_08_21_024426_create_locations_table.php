@@ -17,6 +17,7 @@ return new class extends Migration
             $table->string('name', 100)->unique();
             $table->decimal('latitude', 9, 6);
             $table->decimal('longitude', 9, 6);
+            $table->text('description_address')->nullable();
             $table->timestamp('created_at')->default(DB::raw('CURRENT_TIMESTAMP'));
             $table->timestamp('updated_at')->default(DB::raw('CURRENT_TIMESTAMP'))->useCurrentOnUpdate();
         });
