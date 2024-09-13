@@ -203,18 +203,19 @@ class MeetingController extends Controller
         }
     }
 
-    private function getUsersForMeeting($request, $validated)
+    public function getUsersForMeeting($id)
     {
-        if ($request->has('include_all_users') && $request->include_all_users) {
-            return User::all();
-        } elseif ($request->has('department_id')) {
-            return User::whereHas('division', function ($query) use ($validated) {
-                $query->where('department_id', $validated['department_id']);
-            })->get();
-        } elseif ($request->has('division_id')) {
-            return User::where('division_id', $validated['division_id'])->get();
-        } else {
-            return User::whereIn('id', $validated['user_ids'])->get();
+        // Cek apakah meeting dengan ID tersebut ada
+        $meeting = Meeting::find($id);
+    
+        if (!$meeting) {
+            return response()->json(['error' => 'Meeting not found.'], 404);
         }
+    
+        // Ambil user yang terkait dengan meeting ini
+        $users = $meeting->users;
+    
+        // Kembalikan daftar user dalam bentuk JSON
+        return response()->json(['users' => $users], 200);
     }
 }
