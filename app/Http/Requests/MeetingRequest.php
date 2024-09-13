@@ -30,7 +30,7 @@ class MeetingRequest extends FormRequest
             'location_id' => ['required', 'int', 'exists:locations,id'],
             'include_all_users' => 'sometimes|boolean',
             'department_id' => 'sometimes|integer|exists:departments,id',
-            'division_id' => 'sometimes|integer|exists:divisions,id',
+            'division_id' => 'sometimes|integer|exists:division,id',
             'user_ids' => 'sometimes|array',
             'user_ids.*' => 'integer|exists:users,id',
             'coordinator_meeting' => 'sometimes|boolean',
