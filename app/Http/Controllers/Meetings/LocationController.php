@@ -24,7 +24,6 @@ class LocationController extends Controller
      */
     public function store(LocationRequest  $request)
     {
-       
         $validated = $request->validated(); // Validated data is automatically retrieved from the validated method in LocationRequest
         $location = Location::create($validated); // Create the location with validated data
         return new LocationResource($location); // Return the newly created location as a resource
