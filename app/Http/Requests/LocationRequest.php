@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class LocationRequest extends FormRequest
 {
@@ -23,37 +24,41 @@ class LocationRequest extends FormRequest
     public function rules(): array
     {
         return [
+            'name' => [
+                'required',
+                'string',
+                'max:100',
+                Rule::unique('locations')->ignore($this->route('location')),
+            ],
             'latitude' => [
                 'required',
                 'numeric',
                 'between:-90,90',
-                function ($attribute, $value, $fail) {
-                    if (!$this->isValidCoordinate($value)) {
-                        $fail('The '.$attribute.' is not a valid coordinate.');
-                    }
-                },
+                'regex:/^-?\d{1,2}(\.\d{1,6})?$/',
             ],
             'longitude' => [
                 'required',
                 'numeric',
                 'between:-180,180',
-                function ($attribute, $value, $fail) {
-                    if (!$this->isValidCoordinate($value)) {
-                        $fail('The '.$attribute.' is not a valid coordinate.');
-                    }
-                },
+                'regex:/^-?\d{1,3}(\.\d{1,6})?$/',
             ],
-            'name' => 'required|string|max:100|unique:locations,name', // Perbaikan sesuai tabel
+            'description_address' => 'nullable|string',
         ];
     }
 
-    // Jika ingin menangkap IP user untuk validasi lebih ketat
-    // https://shouts.dev/articles/get-user-geographical-location-in-laravel#:~:text=We%E2%80%99ll%20use%20laravel-geoip%20package.%20Install%20the%20package%20using,Open%20up%20config%2Fapp.php%20and%20find%20the%20providers%20key.
-
-    protected function isValidCoordinate($value)
+    /**
+     * Get custom messages for validator errors.
+     *
+     * @return array
+     */
+    public function messages(): array
     {
-        // Implementasi validasi koordinat yang lebih ketat
-        // Misalnya, memeriksa jumlah desimal, format, dll.
-        return preg_match('/^-?\d+(\.\d{1,6})?$/', $value);
+        return [
+            'latitude.regex' => 'The latitude must have up to 6 decimal places.',
+            'longitude.regex' => 'The longitude must have up to 6 decimal places.',
+        ];
     }
 }
+
+// Jika ingin menangkap IP user untuk validasi lebih ketat
+// https://shouts.dev/articles/get-user-geographical-location-in-laravel#:~:text=We%E2%80%99ll%20use%20laravel-geoip%20package.%20Install%20the%20package%20using,Open%20up%20config%2Fapp.php%20and%20find%20the%20providers%20key.
