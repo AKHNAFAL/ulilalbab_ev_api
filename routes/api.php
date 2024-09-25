@@ -15,8 +15,12 @@ Route::middleware(['auth:sanctum'])->group(function () {
 });
 
 Route::middleware(['auth:sanctum', 'adminAccess'])->group(function () {
+    Route::get('meetings/users/{meeting}', [MeetingController::class, 'getUsersForMeeting']);
+    Route::get('meetings/ongoing', [MeetingController::class, 'ongoingMeetings']);
+    Route::get('meetings/completed', [MeetingController::class, 'completedMeetings']);
+    Route::get('meetings/upcoming', [MeetingController::class, 'upcomingMeetings']);
+
+    Route::apiResource('meetings', MeetingController::class); 
     Route::apiResource('users', UserDataController::class);
-    Route::apiResource('meetings', MeetingController::class);
-    Route::get('meetings/get-users/{id}', [MeetingController::class, 'getUsersForMeeting']);
     Route::apiResource('locations', LocationController::class);
 });
