@@ -62,7 +62,7 @@ class User extends Authenticatable
         return $this->role->access_level === 'admin';
     }
 
-    public function divisions()
+    public function division()
     {
         return $this->belongsTo(Division::class);
     }
