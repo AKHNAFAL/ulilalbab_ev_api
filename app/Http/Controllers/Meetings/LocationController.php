@@ -44,6 +44,7 @@ class LocationController extends Controller
     {
         $validated = $request->validated(); // Get validated data from LocationRequest
         $location->update($validated); // Update the location with validated data
+        $location->refresh();
         return new LocationResource($location); // Return the updated location as a resource
     }
 
