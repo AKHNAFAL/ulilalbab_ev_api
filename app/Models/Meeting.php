@@ -30,7 +30,7 @@ class Meeting extends Model
         return $this->belongsTo(Location::class);
     }
 
-    public function attendances()
+    public function attendance()
     {
         return $this->hasMany(Attendance::class);
     }

@@ -29,7 +29,7 @@ class Location extends Model
         return $this->hasMany(Meeting::class);
     }
 
-    public function attendances()
+    public function attendance()
     {
         return $this->hasMany(Attendance::class);
     }

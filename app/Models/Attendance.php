@@ -18,6 +18,8 @@ class Attendance extends Model
         'meeting_id',
     ];
 
+    protected $nullable = ['meeting_id'];
+
     protected function casts(): array
     {
         return [

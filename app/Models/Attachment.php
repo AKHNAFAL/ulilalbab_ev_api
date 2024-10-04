@@ -22,7 +22,7 @@ class Attachment extends Model
         ];
     }
 
-    public function attendances()
+    public function attendance()
     {                                                                                                                                                                                                                                                               
         return $this->hasMany(Attendance::class);
     }
