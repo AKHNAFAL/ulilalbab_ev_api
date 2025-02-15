@@ -33,7 +33,6 @@ Route::middleware(['auth:sanctum', 'adminAccess'])->group(function () {
     Route::get('meetings/upcoming', [MeetingController::class, 'upcomingMeetings']);
     Route::get('meetings/{meetingId}/attendance', [AdminAttendanceMonitoringController::class, 'monitorMeetingAttendance']);
     
-    
     Route::apiResource('meetings', MeetingController::class); 
     Route::apiResource('users', UserDataController::class);
     Route::apiResource('locations', LocationController::class);
